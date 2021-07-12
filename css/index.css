@@ -1,0 +1,110 @@
+
+.body{
+    font-size: .8em !important;
+}
+
+.borderless{
+    border: none;
+}
+
+.pos-relative{
+    position: relative;
+}
+
+/*Header*/
+.search, .user, .cart{
+    display: flex ;
+    justify-content: center ;
+    flex-direction: column ;
+}
+
+.icon-input{
+    position: absolute;
+    right: 0;
+    width: fit-content;
+    text-align: right;
+    /* border: 1px solid red; */
+}
+
+.badge{
+    font-size: .5em;
+    position: absolute;
+}
+
+
+
+/*top carousel*/
+
+
+.carousel::before{
+    /* content:"a"; */
+    position: relative;
+    height: 20em;
+}
+
+
+.carousel .img{
+    max-height: 20em;
+    float: right;
+}
+
+.carousel-black-thing{
+    background-color: black;
+    height:  20em;
+    /* position: relative; */
+}
+
+.carousel-black-thing .txt-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+/*item list*/
+.productos .arrow{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.border-mini{
+    width: 50%;
+    border: 3px solid gray;
+    border-radius: 10px;
+}
+
+.item-list{
+    width: 100em;
+    overflow: auto;
+}
+
+.item{
+    max-width: 14em;
+    /* border: 1px solid black; */
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 0;
+    font-size: .6em;
+}
+
+.item p, .contact-info p{
+    margin-bottom: .3em;
+}
+
+.item .img{
+    width: 100%;
+    height:100%;
+    min-height: 14em;
+}
+
+.item .info{
+    width: 100%;
+
+    padding: 1em;
+}
+
+/*suscripcion*/
+
+.subscribe input.error{
+    border: 1px solid red;
+}
