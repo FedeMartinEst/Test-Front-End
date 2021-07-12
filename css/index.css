@@ -1,4 +1,6 @@
-
+.carousel, .productos .title, .subscribe .title, footer .title{
+    font-family:arial rounded MT ;
+}
 
 .borderless{
     border: none;
@@ -42,7 +44,6 @@
 }
 
 
-
 /*top carousel*/
 .carousel{
     overflow-x: hidden;
@@ -68,6 +69,8 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+
 
 .carousel-black .txt-container{
     display: flex;
@@ -176,13 +179,25 @@
 .subscribe input.error{
    
     border: 1px solid red;
+    color: red;
 }
 
+.subscribe input.error::placeholder{
+    color: red;
+}
 
-/*foot*/
+.subscribe button{
+    background-color: black;
+}
+
+/*footer*/
+footer{
+    background-color: black;
+}
+
 .contact-info .title{
     font-size: 1.5em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 }
 
 .contact-info{
