@@ -16,7 +16,7 @@
     position: relative;
 }
 
-/*Header*/
+/*=====Header======*/
 .header{
     align-items: center;
 }
@@ -44,7 +44,7 @@
 }
 
 
-/*top carousel*/
+/*======top carousel======*/
 .carousel{
     overflow-x: hidden;
     position: relative;
@@ -84,14 +84,12 @@
     bottom: 25%;
 }
 
-/*item list*/
+/*=======items carousel======*/
 .productos .arrow{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
-
 
 .item-list{
     overflow-x:auto;
@@ -100,11 +98,13 @@
     width:100%;
     display: flex;
     flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .item{
     position: relative;
     max-width: 14em;
+ 
     margin-left: 1em;
     margin-right: 1em;
     padding: 0;

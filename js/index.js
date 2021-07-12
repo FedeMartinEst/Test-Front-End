@@ -14,8 +14,7 @@ document.querySelectorAll(".cant-carrito").forEach((elem)=>{
         var cantidad=JSON.parse(localStorage.getItem('listaCarrito')).length;
         elem.innerText=cantidad>0?cantidad:'';
     }
-    
-})
+});
 
 
 function buscarProductos(){
@@ -42,8 +41,9 @@ function agregarProducto(producto){
         seleccionarProducto(this);
     });
     item.innerHTML=
-        
-            '<div><img class="img" src="'+producto.imageUrl+'" alt=""></div>'+
+            '<div>'+
+                '<img class="img" src="'+producto.imageUrl+'" alt="">'+
+            '</div>'+
             '<div class="info">'+
                 '<p class="item-name">'+
                     producto.productName+
@@ -55,16 +55,14 @@ function agregarProducto(producto){
                 '<p class="item-price-discount"> por $ '+
                     producto.price +
                 '</p>'+
-                (producto.installments[0]?
-                '<p class="item-price-dues"> o en '+
-                    producto.installments[0].quantity+ 'x de $ '+ producto.installments[0].value +
-                '</p>' :'') +
+                ((producto.installments[0])?
+                    '<p class="item-price-dues"> o en '+ producto.installments[0].quantity+ 'x de $ '+ producto.installments[0].value + '</p>':''
+                ) +
                 ((JSON.parse(localStorage.getItem('listaCarrito')) && JSON.parse(localStorage.getItem('listaCarrito')).find(item=>item==producto.productId))?
                 '<button class="item-buy btn select" onclick="cargarProducto(this,'+producto.productId+')">Quitar</button>':
                 '<button class="item-buy btn " onclick="cargarProducto(this,'+producto.productId+')">Comprar</button>'
                 )+
-            '</div>'
-    ;
+            '</div>';
     document.querySelector('.item-list').appendChild(item);
 }
 
