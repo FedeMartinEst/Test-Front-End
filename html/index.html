@@ -6,71 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 </head>
 <body>
-
-        <header class=" ">
-            <div class="row col-9 mx-auto">
+    <div class="row m-0">
+        <header class="pb-2">
+            <div class="row header col-md-9 mx-auto">
+                
+                <div class="user cell col text-center">
+                    <p><i class="fas fa-bars"></i></p>
+                </div>
+                
                 <div class="col">
                     <img src="https://ecommerceday.cl/2021/wp-content/uploads/2021/04/Corebiz.png" alt="">
                 </div>
-    
-                <div class="search col-6">
+                
+                <div class="cart cell col">
+                    
+                    <p><i class="fas fa-shopping-cart"></i><span class="badge bg-danger rounded-circle cant-carrito"></span>
+                    </p>
+                    
+                </div>
+                <div class="search col-md-6 col-12 ">
                     <div class="pos-relative border-bottom row">
                         <input id="search" name="search" class="borderless col" type="text" placeholder="¿Qué estás buscando?">
                         <label for="search" class="icon-input"><i class="fas fa-search "></i></label>
                     </div>
                     
                 </div>
-    
-                <div class="user col text-center">
-                    <p><i class="fas fa-user"></i> Mi cuenta</p>
-                </div>
-    
-                <div class="cart col">
-                    <div>
-                        <p><i class="fas fa-shopping-cart"></i><span class="badge bg-danger rounded-circle">1</span>
-                        </p>
+                
+                <div class="col row pc">
+                    <div class="user col text-center">
+                        <p><i class="fas fa-user"></i> Mi cuenta</p>
                     </div>
-                   
+        
+                    <div class="cart col">
+                        <div>
+                            <p><i class="fas fa-shopping-cart"></i><span class="badge bg-danger rounded-circle cant-carrito"></span>
+                            </p>
+                        </div>
+                       
+                    </div>
                 </div>
-    
+                
             </div>
         </header>
     
-        <div class="carousel ">
+        <div class="carousel py-4">
             
-                <div  class="item-carousel row" item="1">
-                    <div class="carousel-black-thing col-md">
-                        <div class="col-7 text-light txt-container ">
-                            <h3>Hola ¿Qué es lo que buscas?</h3>
-                            <h2>Crear o migrar tu comercio electrónico?</h2>
-                        </div>
-                    
+            <div  class="item-carousel row " item="1">
+                <div class="carousel-black col-md ">
+                    <div class="col-md-7 text-light txt-container ">
+                        <h3>Hola ¿Qué es lo que buscas?</h3>
+                        <h2>Crear o migrar tu comercio electrónico?</h2>
                     </div>
-                    <img src="https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Warframe_image1600w.jpg" 
-                        alt=""
-                        class="img col"
-                    >
+                
                 </div>
+                <div class="col-md px-0">
+                    <div class=" text-light txt-container-cell ">
+                        <h3>Hola ¿Qué es lo que buscas?</h3>
+                        <h2>Crear o migrar tu comercio electrónico?</h2>
+                    </div>
+                    <img src="https://static.vecteezy.com/system/resources/previews/001/782/897/non_2x/hands-holding-credit-card-and-using-laptop-photo.jpg"  alt=""  class="img " >
+                </div>
+            </div>
             
             
         </div>
     
-        <div class="productos mx-auto mb-4 col-9">
+        <div class="productos mx-auto mb-4 col-md-9">
             <div class="col-12">
                 <div  style="width: fit-content;">
-                    <p class="mb-1 ">Más vendidos</p>
+                    <p class="mb-1 title">Más vendidos</p>
                     <div class="border-mini"></div>
                 </div>
                 
             </div>
             <div class=" row">
                 <div class="col-1 arrow">
-                    <
+                    <i class="fas fa-chevron-left"></i>
                 </div>
     
                 <div class="item-list row col">
@@ -78,33 +94,35 @@
                 </div>
         
                 <div class="col-1 arrow">
-                    >
+                    <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
             
         </div>
     
-        <div class="subscribe mb-4">
-            <div class="col-md-6 mx-auto">
-                <div class="col-12">
+        <div class="subscribe py-4">
+            <div class="col-md-6 col-11 mx-auto">
+                <div class="col-12 title">
                     <p>¡Únete a nuestras novedades y promociones!</p>
                 </div>
-                <div class="row">
-                    <input name="name" type="text" class="col-md borderless" placeholder="Ingresa tu nombre">
+                <div class="row col-12 mx-auto">
+                    <input name="name" type="text" class="col-md  form-control mb-2 " placeholder="Ingresa tu nombre">
         
-                    <input name="email" type="email" class="col-md borderless" placeholder="Ingresa tu mail">
+                    <input name="email" type="email" class="col-md form-control mb-2" placeholder="Ingresa tu mail">
         
-                    <button class="col-md btn btn-dark" onclick="suscribir()">Suscribirme</button>
+                    <button class="col-md btn btn-dark mb-2" onclick="suscribir()">Suscribirme</button>
                 </div>
             </div>
             
         </div>
     
-        <footer class=" bg-dark text-light d-flex justify-content-center">
-            <div class="row col-9">
+        <footer class=" bg-dark text-light py-4">
+            <div class="row col-md-9 col-12 mx-auto">
                 <div class="contact-info col-md">
-                    <p >Ubicación</p>
-                    <div class="border-mini"></div>
+                    <div>
+                        <p class="title">Ubicación</p>
+                        <div class="border-mini"></div>
+                    </div>
                     <p>Avenida Andrómeda, 2000, Bloc 6 e 8</p>
                     <p>Alphavile SP</p>
                     <p>brasil@corebitz.ag</p>
@@ -112,7 +130,7 @@
                 </div>
         
                 <div class="contact-btns col-md">
-                    <button class="btn btn-light col-12"><i class="fas fa-mail"></i> CONTACTANOS</button>
+                    <button class="btn btn-light col-12 mb-md-0 mb-4"><i class="fas fa-envelope"></i> CONTACTANOS</button>
                     <button class="btn btn-light col-12"><i class="fas fa-headphones"></i> HABLA CON UN CONSULTOR</button>
                 </div>
         
@@ -123,9 +141,9 @@
             
         </footer>
     
-    
+    </div>
 
-    <script src="../css/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
     <script src="../js/index.js"></script>
 </body>
 </html>

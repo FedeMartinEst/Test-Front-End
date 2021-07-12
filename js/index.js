@@ -7,6 +7,14 @@ document.querySelectorAll(".subscribe input").forEach((elem)=>{
             elem.classList.remove('error');
         }
     })
+});
+
+document.querySelectorAll(".cant-carrito").forEach((elem)=>{
+    if(localStorage.getItem('listaCarrito')){
+        var cantidad=JSON.parse(localStorage.getItem('listaCarrito')).length;
+        elem.innerText=cantidad>0?cantidad:'';
+    }
+    
 })
 
 
@@ -17,9 +25,6 @@ function buscarProductos(){
         else console.error(resp.statusText);
     })
     .then((productos)=>{
-        if(!productos){
-            productos='[{"productId": 1,"productName": "SAPATO FLOATER PRETO","stars": 1,"imageUrl": "https://corebiz-test.herokuapp.com/images/product-1.png","listPrice": null,"price": 25990,"installments": [{"quantity": 9,"value": 2887}]}]';
-        }
         productos=JSON.parse(productos);
         for(item in productos){
             agregarProducto(productos[item]);
@@ -32,18 +37,21 @@ function buscarProductos(){
 
 function agregarProducto(producto){
     var item=document.createElement('div');
-    item.className=" text-center col-3";
+    item.className=" item text-center col-md col-6";
+    item.addEventListener('mouseover',function(){
+        seleccionarProducto(this);
+    });
     item.innerHTML=
-        '<div class="item">'+
+        
             '<div><img class="img" src="'+producto.imageUrl+'" alt=""></div>'+
-            '<div class="info ">'+
+            '<div class="info">'+
                 '<p class="item-name">'+
                     producto.productName+
                 '</p>'+
                 '<div class="item-satrs">'+
 
                 '</div>'+
-                ((producto.listPrice)? '<p class="item-price"> de' + producto.listPrice + '</p>': '<p></p>') +
+                ((producto.listPrice)? '<p class="item-price"> de $ ' + producto.listPrice + '</p>':'') +
                 '<p class="item-price-discount"> por $ '+
                     producto.price +
                 '</p>'+
@@ -51,13 +59,52 @@ function agregarProducto(producto){
                 '<p class="item-price-dues"> o en '+
                     producto.installments[0].quantity+ 'x de $ '+ producto.installments[0].value +
                 '</p>' :'') +
-                
-                '<button class="item-buy btn btn-dark">Comprar </button>'+ 
-
-            '</div>'+
-        '</div>'
+                ((JSON.parse(localStorage.getItem('listaCarrito')) && JSON.parse(localStorage.getItem('listaCarrito')).find(item=>item==producto.productId))?
+                '<button class="item-buy btn select" onclick="cargarProducto(this,'+producto.productId+')">Quitar</button>':
+                '<button class="item-buy btn " onclick="cargarProducto(this,'+producto.productId+')">Comprar</button>'
+                )+
+            '</div>'
     ;
     document.querySelector('.item-list').appendChild(item);
+}
+
+function seleccionarProducto(producto){
+    if(document.querySelector('.item.select')){
+        document.querySelector('.item.select').classList.remove('select');
+    }
+    producto.classList.add('select');
+}
+
+function cargarProducto(elem,id){
+    if(elem.classList.toggle('select')){
+        elem.innerText="Quitar";
+    }
+    else{
+        elem.innerText="Comprar";
+    }
+    var lista;
+    if(lista=JSON.parse(localStorage.getItem('listaCarrito'))){
+        var index=lista.findIndex(item=>item==id);
+        if(index<0){
+            lista.push(id);
+            
+        }
+        else{
+            lista.splice(index,1);
+            
+        }
+        document.querySelectorAll(".cant-carrito").forEach((elem)=>{
+            elem.innerText=lista.length>0?lista.length:'';
+        });
+        localStorage.setItem('listaCarrito',JSON.stringify(lista));
+    }
+    else{
+        var listaCarrito=[id];
+        localStorage.setItem('listaCarrito',JSON.stringify(listaCarrito));
+        document.querySelectorAll(".cant-carrito").forEach((elem)=>{
+            elem.innerText=1;
+        });
+    }
 }
 
 function validarEmail(email){
