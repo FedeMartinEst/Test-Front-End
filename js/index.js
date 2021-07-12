@@ -122,23 +122,37 @@ function validarNombre(nombre){
     return false;
 }
 
-function suscribir(){
+function suscribir(btn){
     var email=document.querySelector("[name='email']").value;
     var nombre=document.querySelector("[name='name']").value;
-
+   
     if(validarNombre(nombre) && validarEmail(email)){
-        var enviar={
-            name:nombre,
-            email:email
-        }
-
-        fetch("https://corebiz-test.herokuapp.com/api/v1/newsletter",{method:"post",body:JSON.stringify(enviar)})
+        // var enviar={
+        //     email:email,
+        //     name:nombre
+            
+        // }
+        var enviar="{\n    \"email\": \""+email+"\",\n    \"name\": \""+nombre+"\"\n}";
+        console.log(enviar);
+        fetch("https://corebiz-test.herokuapp.com/api/v1/newsletter",{
+            method:"post",
+            body:enviar,
+            redirect:'follow'
+        })
         .then((resp)=>{
             if(resp) return resp.text();
             else console.error(resp.statusText);
         })
         .then((resp)=>{
             console.log(resp);
+            if(JSON.parse(resp).status!=='error'){
+                btn.classList.add("suscripto");
+                btn.innerHTML="Suscripto! <i class='fas fa-check'></i>";
+            }
+            
         })
+        .catch(function (error){
+            console.error(error);
+        });
     }
 }

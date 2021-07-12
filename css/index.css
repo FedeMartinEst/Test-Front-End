@@ -190,6 +190,10 @@
     background-color: black;
 }
 
+.subscribe button.suscripto{
+    background-color: rgb(35, 122, 35);
+}
+
 /*footer*/
 footer{
     background-color: black;
